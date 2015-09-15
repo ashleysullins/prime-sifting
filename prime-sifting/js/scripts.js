@@ -6,7 +6,7 @@ var createNumberArray = function(number) {
   return numberArray;
 }
 
-var removeMupltiplesFromArray = function(prime, numArray) {
+var removeMultiplesFromArray = function(prime, numArray) {
   var count = 2;
   while((count * prime) <= (numArray.length + 1)) {
     numArray[(prime * count) - 2] = -1;
@@ -23,4 +23,15 @@ var findNextPrimeNumber = function(number, numArray) {
     currentNumber = numArray[arrayPosition];
   }
   return currentNumber;
+}
+
+var findPrimes = function(number) {
+  var numArray = createNumberArray(number);
+  var nextNum = 1;
+
+  while(nextNum <= number) {
+    nextNum = findNextPrimeNumber(nextNum, numArray);
+    numArray = removeMultiplesFromArray(nextNum, numArray);
+  }
+  return numArray;
 }

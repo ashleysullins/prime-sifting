@@ -52,7 +52,6 @@ $(document).ready(function() {
 
   $("form#generator").submit(function() {
     $(".number-display").remove();
-    // $(".results").empty();
     var userNumber = parseInt($("input#number").val());
     var numArray =  createNumberArray(userNumber);
 
@@ -63,7 +62,7 @@ $(document).ready(function() {
 
     numArray.forEach(function(entry) {
 
-      $(".results").append("<div>" + entry + "</div>");
+      $(".results").append("<div>" + entry + "</div>").fadeIn(1000);
       $(".results div:gt("+ index + ")").addClass(addClassString + count);
       count++;
       index++;
@@ -73,8 +72,7 @@ $(document).ready(function() {
     var primes = findPrimes(userNumber);
 
     primes.forEach(function(entry) {
-      $(".results").find(".number-display" + entry).css( "background-color", "red");
-
+      $(".results").find(".number-display" + entry).css("background-color", "red");
     });
     event.preventDefault();
   });

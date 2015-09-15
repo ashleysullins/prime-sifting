@@ -5,3 +5,12 @@ var createNumberArray = function(number) {
   }
   return numberArray;
 }
+
+var removeMupltiplesFromArray = function(prime, numArray) {
+  var count = 1;
+  while(count * prime <= numArray.length - 2) {
+    numArray[prime * count - 2] = -1;
+    count++;
+  }
+  return numArray;
+}

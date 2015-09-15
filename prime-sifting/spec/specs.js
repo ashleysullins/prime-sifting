@@ -25,6 +25,6 @@ describe('findPrimes', function() {
 
 describe('outputPrimeNumbers', function(){
   it("Will output a string of only prime numbers", function() {
-    expect(outputPrimeNumbers([2, 3, -1, 5, -1, 7, -1])).to.equal(" 2 3 5 7");
+    expect(outputPrimeNumbers([2, 3, -1, 5, -1, 7, -1])).to.eql([2, 3, 5, 7]);
   });
 });

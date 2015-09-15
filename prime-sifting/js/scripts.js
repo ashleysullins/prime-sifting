@@ -37,12 +37,34 @@ var findPrimes = function(number) {
 }
 
 var outputPrimeNumbers = function(numArray) {
-  var output = "";
+  var output = [];
   for (var i = 0; i < numArray.length; i++ ) {
     if (numArray[i] != -1) {
-      output = output.concat(" ");
-      output = output.concat(numArray[i]);
+      // output = output.concat(" ");
+      output.push(numArray[i]);
     }
   }
   return output;
 }
+
+$(document).ready(function() {
+  $(".results").hide();
+
+  $("form#generator").submit(function() {
+    var userNumber = parseInt($("input#number").val());
+    var numArray =  createNumberArray(userNumber);
+
+    var count = 2;
+    var addClassString = "number-display number-display";
+
+    numArray.forEach(function(entry) {
+
+      addClassString.concat(count);
+      $(".results").append("<div>" + entry + "</div>");
+      $(".results div:gt(0)").addClass(addClassString + count);
+      count++;
+    });
+    $(".results").show();
+    event.preventDefault();
+  });
+});

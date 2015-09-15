@@ -1,0 +1,9 @@
+.jumbotron {
+  background-image: url("../img/stardust.png");
+  font-family: 'Orbitron', sans-serif;
+  color: #FFFFFF;
+}
+
+p, h2 {
+  font-family: 'Poiret One', cursive;
+}

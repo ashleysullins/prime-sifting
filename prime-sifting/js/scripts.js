@@ -51,20 +51,31 @@ $(document).ready(function() {
   $(".results").hide();
 
   $("form#generator").submit(function() {
+    $(".number-display").remove();
+    // $(".results").empty();
     var userNumber = parseInt($("input#number").val());
     var numArray =  createNumberArray(userNumber);
 
     var count = 2;
+    var index = 0;
     var addClassString = "number-display number-display";
+
 
     numArray.forEach(function(entry) {
 
-      addClassString.concat(count);
       $(".results").append("<div>" + entry + "</div>");
-      $(".results div:gt(0)").addClass(addClassString + count);
+      $(".results div:gt("+ index + ")").addClass(addClassString + count);
       count++;
+      index++;
     });
     $(".results").show();
+
+    var primes = findPrimes(userNumber);
+
+    primes.forEach(function(entry) {
+      $(".results").find(".number-display" + entry).css( "background-color", "red");
+
+    });
     event.preventDefault();
   });
 });

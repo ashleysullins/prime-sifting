@@ -35,3 +35,14 @@ var findPrimes = function(number) {
   }
   return numArray;
 }
+
+var outputPrimeNumbers = function(numArray) {
+  var output = "";
+  for (var i = 0; i < numArray.length; i++ ) {
+    if (numArray[i] != -1) {
+      output = output.concat(" ");
+      output = output.concat(numArray[i]);
+    }
+  }
+  return output;
+}

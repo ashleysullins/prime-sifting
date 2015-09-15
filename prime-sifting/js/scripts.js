@@ -7,10 +7,20 @@ var createNumberArray = function(number) {
 }
 
 var removeMupltiplesFromArray = function(prime, numArray) {
-  var count = 1;
-  while(count * prime <= numArray.length - 2) {
-    numArray[prime * count - 2] = -1;
+  var count = 2;
+  while((count * prime) <= (numArray.length + 1)) {
+    numArray[(prime * count) - 2] = -1;
     count++;
   }
   return numArray;
+}
+
+var findNextPrimeNumber = function(number, numArray) {
+  var arrayPosition = number - 1;
+  var currentNumber = numArray[arrayPosition];
+  while(currentNumber === -1) {
+    arrayPosition++;
+    currentNumber = numArray[arrayPosition];
+  }
+  return currentNumber;
 }
